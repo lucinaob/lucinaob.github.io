@@ -224,6 +224,56 @@ b {
     text-align: center;
 }
 
+hr.dashed{
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border-top: 2px dashed #4B4CFC;
+}
+
+.btn{
+  background-color: #C4C4FC;
+  border-color: #4B4CFC;
+  border-width: 1.5px;
+  font-family: Consolas, monaco, monospace;
+  font-size: 75%;
+  margin-top: 5px;
+}
+
+.btn:hover{
+  background-color: #4B4CFC;
+  border-color:#C4C4FC;
+  text-transform: uppercase;
+}
+
+.btn.active{
+  text-transform: uppercase;
+}
+
+.grid{
+  display:grid;
+  margin-top: 0;
+  margin-right: auto;
+  grid-gap: 1.3em;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  grid-auto-flow: dense;
+  padding: 0em;
+}
+
+.filterDiv{
+  display: none;
+}
+
+.show{
+  display: block
+}
+
+.name, .date {
+  display: none
+}
 
 /*R code chunks*/
 .inline {

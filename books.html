@@ -1,0 +1,172 @@
+<html>
+
+    <head>
+        <title>About</title> 
+       <link rel="stylesheet" href="style.css"/>
+        <!--This is the title of the page-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"></script>
+        <script src="/load.js"></script> 
+        <style>
+        #popupDialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #e5e5f7;
+            border: 1px solid #4B4CFC;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <script src = "/grid.js"></script>
+
+        <div class = "column left side">
+            <div id = "nav"></div>
+        </div>
+
+        <div class = "column middle">
+
+            <h1>Lucy's Library</h1>
+
+            <article>
+                <i>I love books about infectious disease!!</i>
+                Well, more accurately, I love reading about infectious diseases.
+                In reality, I have many problems with many books, both petty and genuine.
+                But I really do enjoy well-researched, well-written books by smart people who try.
+                This is my living collection of infectious disease non-fiction books I've read, the smart and the stupid, the compassionate and the stupid.
+                You can click on the covers to see my full thoughts, and on the buttons below to filter/resort the books.
+
+            </article>
+
+            <article>
+
+
+                <div id="myBtnContainer">  
+                    <button class = "btn active" onclick = "filterSelection('all')">show all</button>
+                    <p style = "font-size: 80%; margin-bottom: 0">Filter by disease:</p>
+                    <button class = "btn" onclick = "filterSelection('general')">general</button>
+                    <button class = "btn" onclick = "filterSelection('tuberculosis')">TB</button>
+                    <button class = "btn" onclick = "filterSelection('plague')">the plague</button>
+                    <button class = "btn" onclick = "filterSelection('aids')">HIV/AIDS</button>
+                    <p style = "font-size: 80%; margin-bottom: 0;">Filter by audience:</p>
+                    <button class = "btn" onclick = "filterSelection('academic')">academic</button>
+                    <button class = "btn" onclick = "filterSelection('public')">public</button>
+                </div>
+
+                <div class="sort">  
+                    <button class="btn" data-sort-by="title">title (A-Z)</button>
+                    <button class="btn" data-sort-by="dateold">publication date (old–new)</button>
+                    <button class="btn" data-sort-by="name">title (A–Z)</button>
+                  </div>
+            
+            </article>
+
+            <article>
+                <div class = "grid">
+                    <div class = "filterDiv tuberculosis public" onclick="popupFn('johnGreen')">
+                        <img src = "https://cdn.thestorygraph.com/r3uzizz8niiosc649aeafz4eikyk" width = 100%>
+                        <p class = "name">Everything is Tuberculosis</p>
+                        <p class = "date">2025</p>
+                        <p class = "date read">2025</p>
+                    </div>
+
+                    <div class = "filterDiv plague academic" onclick="popupFn('davidHerlihy')">
+                        <img src = "https://cdn.thestorygraph.com/5iaz54zw9fflantq57vvr6u21od2" width = 100%>
+                        <p class = "name">The Black Death and the Transformation of the West</p>
+                        <p class = "date">1997</p>
+                        <p class = "date read">2025</p>
+                    </div>
+
+                    <div class = "filterDiv tuberculosis academic">
+                        <img src = "https://cdn.thestorygraph.com/hfc7ds3alo6oolfurqxvr4hz8mh9" width = 100%>
+                        <p class = "name">Living in the Shadow of Death</p>
+                        <p class = "date">1994</p>
+                        <p class = "date read">2025</p>
+                    </div>
+
+                    <div class = "filterDiv general public">
+                        <img src = "https://cdn.thestorygraph.com/fcxsjcsd3yza0n4uga7ffdpfniqw" width = 100%>
+                        <p class = "name">Pathogensis</p>
+                        <p class = "date">2023</p>
+                        <p class = "date read">2024</p>
+                    </div>
+
+                    <div class = "filterDiv aids general academic">
+                        <img src = "https://cdn.thestorygraph.com/stgext06rm2jges0cz7as2m2rzej" width = 100%>
+                        <p class = "name">Illness as Metaphor & AIDS and Its Metaphors</p>
+                        <p class = "date">1989</p>
+                        <p class = "date read">2024</p>
+                    </div>
+
+                    <div class = "filterDiv tuberculosis public">
+                        <img src = "https://cdn.thestorygraph.com/8mauqwr95ldkew3y6dsnbw0e0lj0" width = 100%>
+                        <p class = "name">Phantom Plaque</p>
+                        <p class = "date">2022</p>
+                        <p class = "date read">2023</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <div class = "popup johnGreen">
+                
+            </div>
+        </div>
+
+    <div id="overlay"></div>
+    <div id="popupDialog" class = "popUp johnGreen">
+        <div class = "blogTitle">Everything is Tuberculosis: The History and Persistence of Our Deadliest Infection</div>
+        <div class = "blogSubTitle" style = "text-align: center">John Green, 2025</div>
+        <div class ="btn" onclick="closeFn('johnGreen')" style = "text-align: center;">
+            Close
+        </div>
+    </div>
+
+    <div id="popupDialog" class = "popUp davidHerlihy">
+        <div class = "blogTitle">The Black Death and the Transformation of the West</div>
+        <div class = "blogSubTitle" style = "text-align: center">David Herlihy, 1997</div>
+        <div class ="btn" onclick="closeFn('davidHerlihy')" style = "text-align: center;">
+            Close
+        </div>
+    </div>
+
+    <script>
+        function popupFn() {
+            document.getElementById(
+                "overlay"
+            ).style.display = "block";
+            document.getElementById(
+                "popupDialog"
+            ).style.display = "block";
+        }
+        function closeFn() {
+            document.getElementById(
+                "overlay"
+            ).style.display = "none";
+            document.getElementById(
+                "popupDialog"
+            ).style.display = "none";
+        }
+    </script>
+
+    </body>
+</html>
